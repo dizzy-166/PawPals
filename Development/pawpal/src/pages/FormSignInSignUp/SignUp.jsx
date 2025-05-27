@@ -1,55 +1,15 @@
 import React from "react"
 import '../styles/MainStyles.css';
 import { useState } from 'react';
-import supabase from '../../Domain/Utils/Constant'
 import { observer } from "mobx-react";
 import SignUpVM from "./SignUpVM";
+import { Load } from "../../components/Load";
+import { ActualState } from "../../Domain/States/ActualState";
 
 
 export const SignUp = observer(({ onToggleAuth }) => {
-    const [userName, setName] = useState('')
-
-    const [login, setLogin] = useState('')
-
-    const [pass, setPass] = useState('')
-
-    const [confirmPass, setConfirm] = useState('')
-
-    const changePass = (event) =>{
-        setPass(event.target.value)
-    }
-
-    const changeLogin = (event) =>{
-        setLogin(event.target.value)
-    }
-
-    const changeName = (event) =>{
-        setName(event.target.value)
-    }
-
-    const changeConfirm = (event) =>{
-        setConfirm(event.target.value)
-    }
-
-    const [message, changeMessage] = useState('')
-
-    const handleSubmit = async (event) => { 
-        
-        const { data, error } = await supabase.auth.signUp({ 
-            email: login,
-            password: pass
-        })
-
-        if(error){
-            changeMessage(error.message)
-            return;
-        }
-        if(data){
-            changeMessage("user account created")
-        }
-    }
-
-    const { actualState, signUpState, updateSignUpState, dispose } = SignUpVM
+    
+    const { actualState, signUpState, updateSignUpState, dispose, regIn, messegeError } = SignUpVM
 
     const [showPassword, setShowPassword] = useState(false);
 
@@ -79,8 +39,10 @@ export const SignUp = observer(({ onToggleAuth }) => {
                     ...signUpState,
                     confirmPassword: e.target.value
                 })}}/>
-                <button class="button-style" type="submit" onClick={handleSubmit}>Зарегистрироваться</button>
-                <p> {message} </p>
+                {actualState === ActualState.Init && (<><button class="button-style" type="submit" onClick={() => regIn()}>Зарегистрироваться</button></>)}
+                {actualState === ActualState.Error && (<><button class="button-style" type="submit" onClick={() => regIn()}>Зарегистрироваться</button> <p> {messegeError} </p></>)}
+                {actualState === ActualState.Loading && (<> <Load/> </>)}
+                {actualState === ActualState.Success && ((onToggleAuth(true), dispose()))}
             </div>
             <div className="registNav">
             <span>Уже есть аккаунт? </span>
