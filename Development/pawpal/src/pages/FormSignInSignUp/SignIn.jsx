@@ -13,6 +13,8 @@ export const SignIn = observer(({setShowing, onToggleAuth, updateUser}) => {
 
     const { actualState, signInState, messegeError, updateSignInState, loagIn, dispose } = SignInVM
 
+    const [showPassword, setShowPassword] = useState(false);
+
     return(
         <div className="formsign">
             <div className="titleform">
@@ -24,7 +26,7 @@ export const SignIn = observer(({setShowing, onToggleAuth, updateUser}) => {
                     ...signInState,
                     email: e.target.value 
                     })}}/>
-                <input type="text" className="input-field" placeholder="Пароль" value={signInState.password} onChange={(e) => {updateSignInState({
+                <input type={showPassword ? 'text' : 'password'} className="input-field" placeholder="Пароль" value={signInState.password} onChange={(e) => {updateSignInState({
                     ...signInState, 
                     password: e.target.value})}}/>
                 {actualState === ActualState.Init && (<><button class="button-style" onClick={() => loagIn(updateUser)}>Войти</button></>)}

@@ -1,4 +1,4 @@
-class SignInState{
+export class SignUpState{
     name = ""
     lastName = ""
     email = ""
