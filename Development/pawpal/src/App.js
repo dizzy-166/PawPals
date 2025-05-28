@@ -1,4 +1,3 @@
-
 import { CustomHeader } from './components/CustomHeader';
 import { FindPet } from './pages/FindPet/FindPet';
 import { Main } from './pages/main/Main';

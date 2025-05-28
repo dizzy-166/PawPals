@@ -1,8 +1,6 @@
-import React from "react"
 import '../styles/MainStyles.css';
 import { useState } from 'react';
 import { observer } from "mobx-react";
-import { makeObservable, observable, action, computed } from "mobx";
 import SignInVM from "./SignInVM";
 import { ActualState } from "../../Domain/States/ActualState";
 import {Load} from '../../components/Load'

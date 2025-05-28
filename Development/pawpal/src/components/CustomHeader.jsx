@@ -1,4 +1,3 @@
-import React from 'react';
 import { Load } from './Load';
 import { useEffect, useState } from 'react';
 import supabase from '../Domain/Utils/Constant';
@@ -65,7 +64,7 @@ import { Link, NavLink } from 'react-router-dom';
           if (e.target === e.currentTarget) {
             setShow(false);
           }}}>
-          (<FormSignInSignUp setShow = {setShow} updateUser = {setCurrentUser}/>)
+          <FormSignInSignUp setShow = {setShow} updateUser = {setCurrentUser}/>
         </div>
       )}
     </>
