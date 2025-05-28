@@ -48,6 +48,13 @@ nav a {
   position: relative;
 }
 
+  .active {
+    font-weight: bold;         /* Жирный шрифт */
+    text-decoration: none;   /* Без подчеркивания */
+    pointer-events: none;    /* Не кликается (опционально) */
+    color: #2a6496;             /* Цвет можно изменить при необходимости */
+}
+
 nav a:not(.no-underline)::after {
   content: "";
   position: absolute;

@@ -3,6 +3,7 @@ import { Load } from './Load';
 import { useEffect, useState } from 'react';
 import supabase from '../Domain/Utils/Constant';
 import { FormSignInSignUp } from '../pages/FormSignInSignUp/FormSignInSignUp';
+import { Link, NavLink } from 'react-router-dom';
 
  export const CustomHeader = () => {
 
@@ -48,10 +49,10 @@ import { FormSignInSignUp } from '../pages/FormSignInSignUp/FormSignInSignUp';
                     <span>PawPals</span>
                 </div>
                 <nav>
-                    <a href="" class="active">Главная</a>
-                    <a href="">Найти питомца</a>
-                    <a href="">Ваши питомцы</a>
-                    <a href="">Встречи</a>
+                    <NavLink to="/" className={({ isActive }) => isActive ? "active" : ""}>Главная</NavLink>
+                    <NavLink to="/find-pet" className={({ isActive }) => isActive ? "active" : ""}>Найти питомца</NavLink>
+                    <NavLink to="/your-pets" className={({ isActive }) => isActive ? "active" : ""}>Ваши питомцы</NavLink>
+                    <NavLink to="/meetings" className={({ isActive }) => isActive ? "active" : ""}>Встречи</NavLink>
                     {!loading && (currentUser ? (<> <a class="no-underline"> <button onClick={getOuting}> Выйти</button></a> </>) : (<> <a class="no-underline"> <button onClick={(e) => { setShow(true) }}> Войти</button></a> </>))}
                     {loading && <Load/>}
                 </nav>
