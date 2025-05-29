@@ -34,7 +34,8 @@ class SignInViewModel {
             return;
         }
         if(data){
-            updateUser(supabase.auth.getUser())
+            const user = await supabase.auth.getUser(); // добавлен await
+            updateUser(user);
             this.actualState = ActualState.Success
         }
         }
