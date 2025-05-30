@@ -276,7 +276,16 @@ nav button:hover {
   background-color: #8b0808;
 }
 
-
+.loading-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* высота экрана, или можно 100% если родитель высоты явно задан */
+  width: 100%;
+  pointer-events: none; /* чтобы не блокировать клики по контенту */
+  font-family: 'Inter';
+  font-size: 200%;
+}
 
 @keyframes spin {
   0% { transform: rotate(0deg); }
