@@ -220,7 +220,7 @@ nav button:hover {
   padding-bottom: 60px; /* небольшой нижний отступ от формы */
 }
 
-.formsign {
+.formprofile {
   background-color: #EFEFEF;
   width: 400px;
   border-radius: 25px;
@@ -229,7 +229,7 @@ nav button:hover {
   text-align: center;
 }
 
-.titleform {
+.titleformforProfile {
   margin-bottom: 20px;
 }
 
@@ -242,13 +242,13 @@ nav button:hover {
   border: 3px solid #ccc;
 }
 
-.input-group {
+.input-fieldforProf {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.input-field {
+.input-groupforProf{
   background-color: #D9D9D9;
   padding: 10px;
   border: 1px solid #ccc;
@@ -259,7 +259,7 @@ nav button:hover {
   box-sizing: border-box;
 }
 
-.button-style {
+.button-styleforProfile {
   background-color: #b80000;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -272,19 +272,11 @@ nav button:hover {
   transition: background-color 0.3s ease;
 }
 
-.button-style:hover {
+.button-styleforProfile:hover {
   background-color: #8b0808;
 }
 
-.loading-overlay {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* высота экрана, или можно 100% если родитель высоты явно задан */
-  width: 100%;
-  pointer-events: none; /* чтобы не блокировать клики по контенту */
-  font-size: 200%;
-}
+
 
 @keyframes spin {
   0% { transform: rotate(0deg); }
