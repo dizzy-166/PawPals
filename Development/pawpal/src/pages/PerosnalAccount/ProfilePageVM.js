@@ -33,11 +33,12 @@ class ProfilePageVM{
 
       if (error) {
         console.error("Ошибка при загрузке профиля:", error.message);
+        this.actualState = ActualState.Error
+        this.messegeError = error.message
         return;
       }
 
       if (data) {
-        console.error("Ошибка при загрузке профиля:", data.lastname);
         this.updateProfile({
             ...this.profile,
             name: data.name || "",
@@ -51,6 +52,8 @@ class ProfilePageVM{
 
       if (userError) {
         console.error("Ошибка при получении email:", userError.message);
+        this.actualState = ActualState.Error
+        this.messegeError = userError.message
         return;
       }
 
@@ -78,7 +81,7 @@ class ProfilePageVM{
       if (!user) {
         console.warn("Пользователь не найден");
         this.actualState = ActualState.Error
-        this.messegeError = "Вы не авторизированы"
+        this.messegeError = "вы не авторизованы"
         return;
       }
 

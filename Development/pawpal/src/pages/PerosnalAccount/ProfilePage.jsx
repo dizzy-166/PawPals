@@ -13,7 +13,7 @@ const ProfilePage = observer(({getOuting}) => {
         loadCurrentUserProfile();
     }, []);
 
-    const {profile, loadCurrentUserProfile, actualState} = ProfilePageVM
+    const {profile, loadCurrentUserProfile, actualState, messegeError} = ProfilePageVM
 
     const navigate = useNavigate();
     
@@ -32,7 +32,7 @@ const ProfilePage = observer(({getOuting}) => {
         )}
       {actualState === ActualState.Error && (
         <div className="loading-overlay">
-            <p>Вы не авторизированы</p>
+            <p>{messegeError}</p>
             </div>
         )}  
       </>
