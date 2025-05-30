@@ -3,41 +3,17 @@ import { useEffect, useState } from 'react';
 import supabase from '../Domain/Utils/Constant';
 import { FormSignInSignUp } from '../pages/FormSignInSignUp/FormSignInSignUp';
 import { Link, NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
- export const CustomHeader = () => {
+ export const CustomHeader = ({loading, currentUser, setCurrentUser}) => {
 
-    const [currentUser, setCurrentUser] = useState(null); // Начальное значение `null`
-    const [loading, setLoading] = useState(true);
+  const [showForm, setShow] = useState(false)
   
-    useEffect(() => {
-      // Асинхронная функция внутри useEffect
-      const fetchUser = async () => {
-        try {
-          // Получаем текущую сессию (если пользователь авторизован)
-          const { data: { user } } = await supabase.auth.getUser();
-          setCurrentUser(user); // Обновляем состояние
-        } catch (error) {
-          setCurrentUser(null); // Если ошибка, сбрасываем пользователя
-        }
-        finally {
-          setLoading(false);
-        }
-      };
-  
-      fetchUser(); // Вызываем функцию
-    }, []);
-  
-    const [showForm, setShow] = useState(false)
-  
-    const getOuting = async () =>{
-      const {error} = supabase.auth.signOut()
-      if(error){
-        return
-      }
-      else{
-        setCurrentUser(null)
-      }
-    }
+  const navigate = useNavigate();
+
+  const goToProfile = () => {
+    navigate('/profile'); // Убедись, что путь совпадает с маршрутом ProfilePage
+  };
 
   return (
     <>
@@ -52,7 +28,7 @@ import { Link, NavLink } from 'react-router-dom';
                     <NavLink to="/find-pet" className={({ isActive }) => isActive ? "active" : ""}>Найти питомца</NavLink>
                     <NavLink to="/your-pets" className={({ isActive }) => isActive ? "active" : ""}>Ваши питомцы</NavLink>
                     <NavLink to="/meetings" className={({ isActive }) => isActive ? "active" : ""}>Встречи</NavLink>
-                    {!loading && (currentUser ? (<> <a class="no-underline"> <button onClick={getOuting}> Выйти</button></a> </>) : (<> <a class="no-underline"> <button onClick={(e) => { setShow(true) }}> Войти</button></a> </>))}
+                    {!loading && (currentUser ? (<> <a class="no-underline" href="#"> <button onClick={goToProfile}> Личный кабинет</button></a> </>) : (<> <a class="no-underline"> <button onClick={(e) => { setShow(true) }}> Войти</button></a> </>))}
                     {loading && <Load/>}
                 </nav>
             </div>

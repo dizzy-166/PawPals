@@ -49,7 +49,8 @@ class SingUpVM{
             const {error} = await supabase.from('Profile').insert({
                 id: data.user.id,
                 name: this.signUpState.name,
-                lastname: this.signUpState.lastName
+                lastname: this.signUpState.lastName,
+                dateBirth: this.signUpState.birthDate
             })
             if(!error){
                 this.actualState = ActualState.Success

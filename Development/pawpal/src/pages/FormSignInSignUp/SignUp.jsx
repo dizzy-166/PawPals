@@ -4,13 +4,14 @@ import { observer } from "mobx-react";
 import SignUpVM from "./SignUpVM";
 import { Load } from "../../components/Load";
 import { ActualState } from "../../Domain/States/ActualState";
-
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 export const SignUp = observer(({ onToggleAuth }) => {
     
     const { actualState, signUpState, updateSignUpState, dispose, regIn, messegeError } = SignUpVM
-
-    const [showPassword, setShowPassword] = useState(false);
+    const [birthDate, setBirthDate] = useState(null);
+    const [showPassword, changing] = useState(false);
 
     return(
         <div className="formsign">
@@ -38,6 +39,18 @@ export const SignUp = observer(({ onToggleAuth }) => {
                     ...signUpState,
                     confirmPassword: e.target.value
                 })}}/>
+                <DatePicker
+                selected={birthDate}
+                onChange={(date) => {
+                    setBirthDate(date);
+                    updateSignUpState({
+                        ...signUpState,
+                        birthDate: date});
+                    }}
+                    dateFormat="dd.MM.yyyy"
+                    placeholderText="Дата рождения"
+                    className="input-field"
+                    />
                 {actualState === ActualState.Init && (<><button class="button-style" type="submit" onClick={() => regIn()}>Зарегистрироваться</button></>)}
                 {actualState === ActualState.Error && (<><button class="button-style" type="submit" onClick={() => regIn()}>Зарегистрироваться</button> <p> {messegeError} </p></>)}
                 {actualState === ActualState.Loading && (<> <Load/> </>)}

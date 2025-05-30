@@ -4,4 +4,5 @@ export class SignUpState{
     email = ""
     password = ""
     confirmPassword = ""
+    birthDate = null
 }
