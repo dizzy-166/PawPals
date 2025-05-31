@@ -1,0 +1,293 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('../../shrif/Inter-Regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Inter_Dis';
+    src: url('../../shrif/InterDisplay-Regular.woff2') format('woff2');
+}
+
+
+.container {
+  background-color: #F2A75D;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: 'Inter_Dis', sans-serif;
+  }
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 70px; /* Логотип увеличен */
+    margin-right: 15px;
+}
+
+.logo span {
+    font-weight: bold;
+    font-size: 32px; /* Ещё больше увеличен текст "Управляй мечтой" */
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Чуть больше расстояние между ссылками */
+}
+
+nav a {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  font-size: 20px; /* Увеличил размер текста меню */
+  padding: 10px 15px;
+  border-radius: 20px;
+  position: relative;
+}
+
+  .active {
+    font-weight: bold;         /* Жирный шрифт */
+    text-decoration: none;   /* Без подчеркивания */
+    pointer-events: none;    /* Не кликается (опционально) */
+    color: #2a6496;             /* Цвет можно изменить при необходимости */
+}
+
+nav a:not(.no-underline)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: black;
+  transition: width 0.3s ease;
+}
+
+nav a:not(.no-underline):hover::after {
+  width: 100%;
+}
+
+
+
+nav button {
+  background-color: #b80000;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+nav button:hover {
+  background-color: #8b0808;
+}
+
+.signinСontainer
+{
+    background-color: #FFFFFF;
+    font-family: 'Inter_Dis', sans-serif;
+}
+
+
+.parent-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Вертикальное центрирование */
+    align-items: center;    /* Горизонтальное центрирование (опционально) */
+    height: 100vh;         /* Высота контейнера = высоте экрана */
+  }
+
+.formsign
+{
+    background-color: #EFEFEF;
+    font-size: 20px;
+    margin-inline: 15%;
+    padding-left: 2%;
+    width: 400px;
+    border-radius: 25px;
+    border: 1px solid black
+}
+
+.titleform{
+    margin-top: 20px; 
+}
+
+.input-group {
+    margin-top: 30px;
+  }
+
+.input-group input { /* Выбираем первый input внутри .input-group */
+    margin-bottom: 20px; /* Задаем отступ снизу */
+  }
+  
+  
+  .input-field {
+  background-color: #D9D9D9;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  width: 80%;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+.react-datepicker-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.react-datepicker__input-container {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+}
+
+  .button-style {
+    background-color: #50c878; /* Цвет фона (примерно зеленый) */
+    color: #fff; /* Белый цвет текста */
+    padding: 10px 20px; /* Верхний/нижний и левый/правый отступы */
+    border: none; /* Убираем обводку */
+    border-radius: 8px; /* Скругление углов */
+    font-size: 16px; /* Размер шрифта */
+    cursor: pointer; /* Изменение курсора при наведении */
+    transition: background-color 0.3s ease; /* Плавный переход цвета фона */
+  }
+  
+  .button-style:hover {
+    background-color: #3ea868; /* Цвет фона при наведении (более темный зеленый) */
+  }
+  
+  .button-style:active {
+    background-color: #328757; /* Цвет фона при нажатии (еще более темный зеленый) */
+  }
+  
+  .button-style:focus {
+    outline: none; /* Убираем обводку при фокусе */
+    box-shadow: 0 0 0 2px rgba(80, 200, 120, 0.5); /* Добавляем легкую тень для индикации фокуса */
+  }
+
+.registNav{
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.create-account-link{
+    background: none;
+    border: none;
+    color: #2a5885;
+    cursor: pointer;
+    font-weight: 500;
+    padding: 0;
+    margin-left: 5px;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner-container {
+  display: flex;
+}
+
+.spinner {
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.profile-page {
+  background-color: #FFFFFF;
+  font-family: 'Inter_Dis', sans-serif;
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 60px; /* небольшой нижний отступ от формы */
+}
+
+.formprofile {
+  background-color: #EFEFEF;
+  width: 400px;
+  border-radius: 25px;
+  border: 1px solid black;
+  padding: 30px 0;
+  text-align: center;
+}
+
+.titleformforProfile {
+  margin-bottom: 20px;
+}
+
+.profile-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border: 3px solid #ccc;
+}
+
+.input-fieldforProf {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-groupforProf{
+  background-color: #D9D9D9;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  width: 80%;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.button-styleforProfile {
+  background-color: #b80000;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-styleforProfile:hover {
+  background-color: #8b0808;
+}
+
+.loading-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* высота экрана, или можно 100% если родитель высоты явно задан */
+  width: 100%;
+  pointer-events: none; /* чтобы не блокировать клики по контенту */
+  font-family: 'Inter';
+  font-size: 200%;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
