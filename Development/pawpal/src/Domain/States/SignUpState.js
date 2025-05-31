@@ -1,3 +1,4 @@
+// состояние для авторизации
 export class SignUpState{
     name = ""
     lastName = ""

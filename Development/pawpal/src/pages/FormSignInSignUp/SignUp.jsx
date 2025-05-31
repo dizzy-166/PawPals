@@ -9,9 +9,9 @@ import "react-datepicker/dist/react-datepicker.css";
 
 export const SignUp = observer(({ onToggleAuth }) => {
     
-    const { actualState, signUpState, updateSignUpState, dispose, regIn, messegeError } = SignUpVM
-    const [birthDate, setBirthDate] = useState(null);
-    const [showPassword, changing] = useState(false);
+    const { actualState, signUpState, updateSignUpState, dispose, regIn, messegeError } = SignUpVM // декомпозиация viewmodel
+    const [birthDate, setBirthDate] = useState(null); // useState для дата пикера
+    const [showPassword, changing] = useState(false); // useState для скрытия пароля
 
     return(
         <div className="formsign">

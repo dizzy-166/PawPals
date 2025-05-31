@@ -5,14 +5,17 @@ import { FormSignInSignUp } from '../pages/FormSignInSignUp/FormSignInSignUp';
 import { Link, NavLink } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
+
+// статичный хедер сайта
+// передается метод загрузки пользователя, информация о текущем пользователе (если есть), и состояние загрузки пользователя
  export const CustomHeader = ({loading, currentUser, setCurrentUser}) => {
 
-  const [showForm, setShow] = useState(false)
+  const [showForm, setShow] = useState(false) // useState для формы регистрации и авторизации
   
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // использование навигации
 
   const goToProfile = () => {
-    navigate('/profile'); // Убедись, что путь совпадает с маршрутом ProfilePage
+    navigate('/profile'); // навигация на профиль пользователя
   };
 
   return (
@@ -34,13 +37,14 @@ import { useNavigate } from 'react-router-dom';
             </div>
         </header>
 
+        {/* логика отображения формы регистрации и авторизации */}
         {showForm && (
         <div className="modal-overlay" onClick={(e) => {
           // Закрываем только если кликнули именно на оверлей
           if (e.target === e.currentTarget) {
             setShow(false);
           }}}>
-          <FormSignInSignUp setShow = {setShow} updateUser = {setCurrentUser}/>
+          <FormSignInSignUp setShow = {setShow} updateUser = {setCurrentUser}/> {/* открываем форму и передаем функцию для смены пользователя */}
         </div>
       )}
     </>

@@ -1,6 +1,6 @@
 
 
-
+// индикатор закгрузки, учитывает размеры родительского контейнера
  export const Load = ({ size = 'medium', color = '#3498db' }) => {
   const sizeMap = {
     small: '20px',

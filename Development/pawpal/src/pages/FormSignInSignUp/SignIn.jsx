@@ -9,10 +9,11 @@ import {Load} from '../../components/Load'
 
 export const SignIn = observer(({setShowing, onToggleAuth, updateUser}) => {
 
-    const { actualState, signInState, messegeError, updateSignInState, loagIn, dispose } = SignInVM
+    const { actualState, signInState, messegeError, updateSignInState, loagIn, dispose } = SignInVM // докомпозируются функции из viewmodel
 
-    const [showPassword, setShowPassword] = useState(false);
+    const [showPassword, setShowPassword] = useState(false); // useState для скрытия пароля
 
+    
     return(
         <div className="formsign">
             <div className="titleform">

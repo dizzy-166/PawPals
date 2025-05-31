@@ -12,56 +12,49 @@ import supabase from './Domain/Utils/Constant';
 
 
 function App() {
-  
+  const [currentUser, setCurrentUser] = useState(null)       // Состояние текущего пользователя
+  const [loading, setLoading] = useState(true)               // Флаг загрузки (например, для отображения спиннера)
 
-  const [currentUser, setCurrentUser] = useState(null); // Начальное значение `null`
-  const [loading, setLoading] = useState(true);
-  
-    useEffect(() => {
-      // Асинхронная функция внутри useEffect
-      const fetchUser = async () => {
-        try {
-          // Получаем текущую сессию (если пользователь авторизован)
-          const { data: { user } } = await supabase.auth.getUser();
-          setCurrentUser(user); // Обновляем состояние
-        } catch (error) {
-          setCurrentUser(null); // Если ошибка, сбрасываем пользователя
-        }
-        finally {
-          setLoading(false);
-        }
-      };
-  
-      fetchUser(); // Вызываем функцию
-    }, []);
-  
-    
-  
-    const getOuting = async () =>{
-      const {error} = supabase.auth.signOut()
-      if(error){
-        return
-      }
-      else{
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        // Получаем текущего пользователя из Supabase
+        const { data: { user } } = await supabase.auth.getUser()
+        setCurrentUser(user)
+      } catch (error) {
         setCurrentUser(null)
+      } finally {
+        setLoading(false)
       }
     }
-  
+
+    fetchUser()
+  }, [])
+
+  // Функция выхода из аккаунта
+  const getOuting = async () => {
+    const { error } = await supabase.auth.signOut()
+    if (!error) {
+      setCurrentUser(null)
+    }
+  }
 
   return (
-    <>
     <Router>
-      <CustomHeader loading={loading} currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+      <CustomHeader
+        loading={loading}
+        currentUser={currentUser}
+        setCurrentUser={setCurrentUser}
+      />
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/find-pet" element={<FindPet />} />
         <Route path="/your-pets" element={<YourPets />} />
         <Route path="/meetings" element={<Meetings />} />
-        <Route path="/profile" element={<ProfilePage getOuting={getOuting}/>} />
+        <Route path="/profile" element={<ProfilePage getOuting={getOuting} />} />
       </Routes>
     </Router>
-    </>
-  );
+  )
 }
 
-export default App;
+export default App

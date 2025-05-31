@@ -1,5 +1,5 @@
 
-
+// личный кабинет, передается функция для выхода и объект с полями для вывода информации о пользователе
 export const Profile = ({profile, goToMain, profilePhoto}) => {
 return (
     <div className="profile-page">
