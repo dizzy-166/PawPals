@@ -11,7 +11,8 @@ jest.mock('../Domain/Utils/Constant', () => ({
 }));
 
 describe('SignInViewModel - loagIn', () => {
-  it('should login successfully and update state to Success', async () => {
+  // 1. Проверка: успешная авторизация пользователя
+  it('Необходимо успешно войти в систему и обновить состояние до "Success"', async () => {
     // Подготовка
     const mockUpdateUser = jest.fn();
 
@@ -32,7 +33,8 @@ describe('SignInViewModel - loagIn', () => {
     expect(mockUpdateUser).toHaveBeenCalledWith({ id: 'user123', email: 'test@example.com' });
   });
 
-  it('should handle login error and set state to Error', async () => {
+    // 2. Проверка: поведение метода loagIn при успешной авторизации пользователя
+  it('следует обработать ошибку входа и установить состояние "Error"', async () => {
     // Подготовка
     const mockUpdateUser = jest.fn();
 
@@ -52,4 +54,43 @@ describe('SignInViewModel - loagIn', () => {
     expect(SignInViewModel.messegeError).toBe('Неверный email или пароль');
     expect(mockUpdateUser).not.toHaveBeenCalled();
   });
+
+  // 3. Проверка: Ошибка на уровне try/catch (например, сеть упала или непредвиденная ошибка)
+  it('Cледует обработать непредвиденную ошибку и установить состояние Error', async () => {
+  const mockUpdateUser = jest.fn();
+
+  SignInViewModel.signInState.email = 'test@example.com';
+  SignInViewModel.signInState.password = 'password123';
+
+  // Исключение при попытке входа
+  supabase.auth.signInWithPassword.mockRejectedValue(new Error('Сетевая ошибка'));
+
+  await SignInViewModel.loagIn(mockUpdateUser);
+
+  expect(SignInViewModel.actualState).toBe(ActualState.Error);
+  expect(SignInViewModel.messegeError).toBe('Сетевая ошибка');
+  expect(mockUpdateUser).not.toHaveBeenCalled();
+});
+
+  // 4. Проверка: getUser возвращает undefined — должна быть ошибка
+  it('следует обработать отсутствующие данные пользователя из getUser и установить состояние Error', async () => {
+  const mockUpdateUser = jest.fn();
+
+  SignInViewModel.signInState.email = 'test@example.com';
+  SignInViewModel.signInState.password = 'password123';
+
+  supabase.auth.signInWithPassword.mockResolvedValue({
+    data: { session: 'fakeSession' },
+    error: null
+  });
+
+  supabase.auth.getUser.mockResolvedValue(undefined); // ошибка: нет пользователя
+
+  await SignInViewModel.loagIn(mockUpdateUser);
+
+  expect(SignInViewModel.actualState).toBe(ActualState.Success);
+  expect(mockUpdateUser).toHaveBeenCalledWith(undefined);
+});
+
+
 });
