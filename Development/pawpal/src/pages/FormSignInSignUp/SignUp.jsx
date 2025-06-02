@@ -40,7 +40,7 @@ export const SignUp = observer(({ onToggleAuth }) => {
                     confirmPassword: e.target.value
                 })}}/>
                 <DatePicker
-                selected={birthDate}
+                selected={signUpState.birthDate}
                 onChange={(date) => {
                     setBirthDate(date);
                     updateSignUpState({

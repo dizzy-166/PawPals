@@ -64,11 +64,16 @@ class SingUpVM {
 
             // Если регистрация успешна, добавляем пользователя в таблицу "Profile"
             if (data) {
+                const date = this.signUpState.birthDate;
+                const birthDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+                console.log('Дата перед отправкой:', this.signUpState.birthDate);
+                console.log('Тип:', typeof this.signUpState.birthDate);
+                console.log('ISO:', birthDate);
                 const { error } = await supabase.from('Profile').insert({
                     id: data.user.id,
                     name: this.signUpState.name,
                     lastname: this.signUpState.lastName,
-                    dateBirth: this.signUpState.birthDate
+                    dateBirth: birthDate
                 })
 
                 // Проверка на ошибки при добавлении профиля
