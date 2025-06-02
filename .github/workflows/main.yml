@@ -12,7 +12,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: PawPals/Development/pawpal
+        working-directory: Development/pawpal
 
     steps:
       - name: Checkout repository
