@@ -7,6 +7,7 @@ import { Profile } from '../../components/Profile';
 import { ActualState } from '../../Domain/States/ActualState';
 import { Load } from '../../components/Load';
 
+
 const ProfilePage = observer(({getOuting}) => {
 
     useEffect(() => {

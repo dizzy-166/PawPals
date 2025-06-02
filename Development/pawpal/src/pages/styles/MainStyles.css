@@ -20,10 +20,12 @@
 .logo {
     display: flex;
     align-items: center;
+    margin-left: 1%;
 }
 
 .logo img {
-    height: 70px; /* Логотип увеличен */
+    height: 1%; /* Логотип увеличен */
+    width: 30%;
     margin-right: 15px;
 }
 

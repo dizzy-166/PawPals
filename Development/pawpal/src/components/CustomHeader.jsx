@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 // статичный хедер сайта
 // передается метод загрузки пользователя, информация о текущем пользователе (если есть), и состояние загрузки пользователя
- export const CustomHeader = ({loading, currentUser, setCurrentUser}) => {
+ export const CustomHeader = ({loading, currentUser, setCurrentUser, logoPhoto}) => {
 
   const [showForm, setShow] = useState(false) // useState для формы регистрации и авторизации
   
@@ -23,7 +23,7 @@ import { useNavigate } from 'react-router-dom';
     <header>
             <div class="container">
                 <div class="logo">
-                    <img src="../materials/logo.png" alt="Paw Pals Logo"/>
+                    <img src={logoPhoto} alt="Paw Pals Logo"/>
                     <span>PawPals</span>
                 </div>
                 <nav>

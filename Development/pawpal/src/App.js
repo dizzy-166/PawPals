@@ -8,7 +8,7 @@ import { YourPets } from './pages/YourPets/YourPets';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import supabase from './Domain/Utils/Constant';
-
+import logo from './resorce/logo.png' 
 
 
 function App() {
@@ -45,6 +45,7 @@ function App() {
         loading={loading}
         currentUser={currentUser}
         setCurrentUser={setCurrentUser}
+        logoPhoto = {logo}
       />
       <Routes>
         <Route path="/" element={<MainPage />} />
