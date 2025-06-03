@@ -26,45 +26,58 @@ class MainPageVM {
     }
 
     // Загрузка животного по petId из БД
-    loadPets = action(async () => {
-        const { data, error } = await supabase
+    loadPets = async () => {
+    try {
+        const { data: petsData, error: petsError } = await supabase
             .from('Pets')
             .select('id, name, category, image, breed_id, date_birth');
-        
 
-        if (error) {
-            this.actualState = ActualState.Error;
+        if (petsError) {
+            console.error('Ошибка при загрузке питомцев:', petsError.message);
+            this.actualState = 'Error';
             return;
         }
-        const shuffledData = [...data].sort(() => Math.random() - 0.5);
-        try{
-            const { data, error } = await supabase
-            .from ('Breeds')
-            
-            .select('id, name')
-            if(error){
-                console.log('иди нахуй', this.breeds);
-                this.actualState = ActualState.Error;
-                return
-            }
-        this.pets = shuffledData
-        
-        console.log('НЕ Ошибка', data);
-        if(data){
-            this.breeds = data
-            this.pets = this.pets.map(pet => ({
-                ...pet,
-                breedName: data[pet.breed_id - 1].name || 'Unknown'
-              }));
 
-              this.actualState = ActualState.Success; 
-        }  
+        const shuffledData = [...petsData].sort(() => Math.random() - 0.5);
+
+        const { data: breedsData, error: breedsError } = await supabase
+            .from('Breeds')
+            .select('id, name');
+
+        if (breedsError) {
+            console.error('Ошибка при загрузке пород:', breedsError.message);
+            this.actualState = 'Error';
+            return;
         }
-        catch(e){
-            this.actualState = ActualState.Error;
-            console.log('иди нахуй adad', e);
-        }
-    });
+
+        // Преобразуем дату рождения в возраст
+        const petsWithAge = shuffledData.map(pet => {
+            const birthDate = new Date(pet.date_birth);
+            const today = new Date();
+            let age = today.getFullYear() - birthDate.getFullYear();
+            const monthDiff = today.getMonth() - birthDate.getMonth();
+
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+
+            return {
+                ...pet,
+                age,
+                breedName: breedsData.find(b => b.id === pet.breed_id)?.name || 'Unknown'
+            };
+        });
+
+        this.pets = petsWithAge;
+        this.breeds = breedsData;
+        this.actualState = 'Success';
+
+        console.log('Питомцы с возрастом:', this.pets);
+    } catch (e) {
+        console.error('Неожиданная ошибка:', e);
+        this.actualState = 'Error';
+    }
+}
 
 }
 

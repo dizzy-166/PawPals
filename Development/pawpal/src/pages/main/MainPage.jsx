@@ -20,7 +20,7 @@ const PetCard = ({ pet }) => {
       
       <div className="petInfoContainer">
         <h3 className="petName">{pet.name}</h3>
-        <p className="petDetail">{pet.breedName}, {pet.date_birth} года</p>
+        <p className="petDetail">{pet.breedName}, возвраст (в годах): {pet.age}</p>
         <p className="petLocation">{pet.location}</p>
         
         <button className="walkButton">
