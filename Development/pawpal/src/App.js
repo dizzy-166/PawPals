@@ -1,6 +1,6 @@
 import { CustomHeader } from './components/CustomHeader';
 import { FindPet } from './pages/FindPet/FindPet';
-import { MainPage } from './pages/main/MainPage';
+
 import { Meetings } from './pages/Meetings/Meetings';
 import ProfilePage from './pages/PerosnalAccount/ProfilePage';
 import './pages/styles/MainStyles.css'
@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import supabase from './Domain/Utils/Constant';
 import logo from './resorce/logo.png' 
+import MainPage from './pages/main/MainPage';
 
 
 function App() {

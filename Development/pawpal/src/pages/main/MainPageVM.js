@@ -29,16 +29,41 @@ class MainPageVM {
     loadPets = action(async () => {
         const { data, error } = await supabase
             .from('Pets')
-            .select('id, name, category, image');
+            .select('id, name, category, image, breed_id, date_birth');
+        
 
         if (error) {
             this.actualState = ActualState.Error;
             return;
         }
+        const shuffledData = [...data].sort(() => Math.random() - 0.5);
+        try{
+            const { data, error } = await supabase
+            .from ('Breeds')
+            
+            .select('id, name')
+            if(error){
+                console.log('иди нахуй', this.breeds);
+                this.actualState = ActualState.Error;
+                return
+            }
+        this.pets = shuffledData
+        
+        console.log('НЕ Ошибка', data);
+        if(data){
+            this.breeds = data
+            this.pets = this.pets.map(pet => ({
+                ...pet,
+                breedName: data[pet.breed_id - 1].name || 'Unknown'
+              }));
 
-        this.pets = data
-
-        this.actualState = ActualState.Success;
+              this.actualState = ActualState.Success; 
+        }  
+        }
+        catch(e){
+            this.actualState = ActualState.Error;
+            console.log('иди нахуй adad', e);
+        }
     });
 
 }
