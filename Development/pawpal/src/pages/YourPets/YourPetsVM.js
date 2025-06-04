@@ -6,6 +6,7 @@ import { makeObservable, observable, action, computed } from "mobx";
 class YourPetsVM{
     actualState = ActualState.Loading
     pets = []
+    beerds = []
     addState = ActualState.Init
     messegeError = ''
 
@@ -14,6 +15,7 @@ class YourPetsVM{
             makeObservable(this, {
                 actualState: observable,
                 pets: observable,
+                beerds: observable,
                 addState: observable,
                 messegeError: observable,
                 loadPets: action
@@ -58,9 +60,11 @@ class YourPetsVM{
             });
 
             this.pets = petsWithAge;
+            this.beerds = breedsData;
             this.actualState = ActualState.Success;
 
             console.log('Питомцы с возрастом:', this.pets);
+            console.log('Питомцы DADAD возрастом:', this.beerds);
         } catch (e) {
             console.error('Неожиданная ошибка:', e);
             this.actualState = 'Error';
@@ -79,10 +83,13 @@ class YourPetsVM{
             return;
         }
 
+        const date = newPet.date_birth;
+        const birthDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+
         const petToInsert = {
             name: newPet.name,
-            date_birth: newPet.date_birth,
-            breed_id: newPet.breed_id, // breed_id должен быть числом
+            date_birth: birthDate,
+            breed_id: newPet.breedName, // breed_id должен быть числом
             city: newPet.city,
             image: newPet.image || '', // можно оставить пустым
             owner: userData.user.id

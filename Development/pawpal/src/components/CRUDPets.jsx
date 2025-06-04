@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import image from '../resorce/no_photo.png';
 import { ActualState } from '../Domain/States/ActualState';
+import DatePicker from "react-datepicker";
 
-export const CRUDPets = ({ pets, onDelete, onUpdate, onAdd, addState, messegeError }) => {
+export const CRUDPets = ({ pets, onDelete, onUpdate, onAdd, addState, messegeError, b }) => {
   const [editingPets, setEditingPets] = useState({});
   const [showAddForm, setShowAddForm] = useState(false);
-  const [newPet, setNewPet] = useState({ name: '', date_birth: '', breed: '', city: '' });
+  const [newPet, setNewPet] = useState({ name: '', date_birth: '', breedName: 1, city: '' });
 
   const handleFieldChange = (id, field, value) => {
     setEditingPets(prev => ({
@@ -26,7 +27,9 @@ export const CRUDPets = ({ pets, onDelete, onUpdate, onAdd, addState, messegeErr
   };
 
   const handleNewPetChange = (field, value) => {
+    console.log('Питомцы с возрастом:', field, value);
     setNewPet(prev => ({ ...prev, [field]: value }));
+    console.log('Питомцы с возрастом:', newPet);
   };
 
   const handleAddPet = () => {
@@ -62,11 +65,38 @@ export const CRUDPets = ({ pets, onDelete, onUpdate, onAdd, addState, messegeErr
                   {field === 'name' ? 'Имя:' :
                    field === 'date_birth' ? 'Дата:' :
                    field === 'breedName' ? 'Порода:' : 'Город:'}
-                  <input
+                  {field !==  'breedName' && field !==  'date_birth' && <input
                     type="text"
                     value={newPet[field]}
                     onChange={(e) => handleNewPetChange(field, e.target.value)}
-                  />
+                  />}
+                  {field === 'date_birth' && <>
+                  <DatePicker
+                  selected={newPet[field]}
+                  onChange={(date) => {
+                    handleNewPetChange(field, date)
+                  }}
+                  dateFormat="dd.MM.yyyy"
+                  placeholderText="Дата рождения"
+                   className="userpets-form input"
+                  /> 
+                   </>}
+                  {field === 'breedName' && (
+                    <div className="select-wrapper">
+                    <select
+                    required
+                    onChange={(e) => handleNewPetChange(field, e.target.value)}
+                    className="userpets-form-input"
+                    >
+                      <option value="">Выберите породу</option>
+                      {b.map(x => (
+                        <option key={x.name} value={x.id}>
+                          {x.name}
+                          </option>
+                        ))}
+                        </select>
+                      </div>
+                      )}
                 </label>
               ))}
             </form>

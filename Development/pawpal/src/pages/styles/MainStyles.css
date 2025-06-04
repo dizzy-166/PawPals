@@ -138,17 +138,7 @@ nav button:hover {
   margin-bottom: 20px;
   box-sizing: border-box;
 }
-.react-datepicker-wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
 
-.react-datepicker__input-container {
-  width: 80%;
-  display: flex;
-  justify-content: center;
-}
 
   .button-style {
     background-color: #50c878; /* Цвет фона (примерно зеленый) */
@@ -336,19 +326,28 @@ nav button:hover {
 
 .userpets-form label {
   display: flex;
+  margin-left: 8%;
   flex-direction: column;
   font-size: 16px;
   font-weight: 500;
   color: #222;
 }
 
+.userpets-form-input,
 .userpets-form input {
-  margin-top: 4px;
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 16px;
+  margin-top: 4px !important;
+  padding: 8px 15px !important;
+  border: 1px solid #ccc !important;
+  border-radius: 8px !important;
+  font-size: 16px !important;
+  width: 80% !important;
 }
+
+.select-wrapper {
+  position: relative;
+  width: 111%;
+}
+
 
 /* Кнопки */
 .userpets-actions {
