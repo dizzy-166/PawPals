@@ -1,0 +1,294 @@
+[33mcommit c13498ab8962d5ee65effb415b245bb16b94b27f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Merge: afa3828c c2bf44e0
+Author: unknown <ГусевИА@ngknn.local>
+Date:   Wed Jun 4 17:40:02 2025 +0300
+
+    Merge branch 'main' of https://github.com/dizzy-166/PawPals
+
+[33mcommit afa3828c2e43f47304511281554cd17b4091f3c4[m
+Author: unknown <ГусевИА@ngknn.local>
+Date:   Wed Jun 4 17:38:08 2025 +0300
+
+    3/6 UML for collection pets
+
+[33mcommit c2bf44e01d5b9c8bda13f9caaddeba77791a08e1[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: unknown <ШероновДС@ngknn.local>
+Date:   Wed Jun 4 14:29:42 2025 +0300
+
+    uml class and communication
+
+[33mcommit 4b1af7d822bacbab003d31ccfa41600f2b608602[m
+Author: artemch5a1 <artemch5a1@yandex.ru>
+Date:   Wed Jun 4 05:18:34 2025 +0300
+
+    add uml
+
+[33mcommit fd40d291a806881976943ad2434dc51d06923b88[m
+Author: artemch5a1 <artemch5a1@yandex.ru>
+Date:   Wed Jun 4 02:18:32 2025 +0300
+
+    add uml
+
+[33mcommit e2aa0a436e66df71ecea701ff35bb6417d589d2f[m
+Author: unknown <ЧимовАР@ngknn.local>
+Date:   Tue Jun 3 13:15:41 2025 +0300
+
+    add uml
+
+[33mcommit 3c20e093908373901c2e63bc76c67307544aaebd[m
+Author: artemch5a1 <artemch5a1@yandex.ru>
+Date:   Tue Jun 3 01:22:28 2025 +0300
+
+    update plan rabot
+
+[33mcommit f5c3f46a1608d603e9010337e06ee8ba5b8999f3[m
+Author: artemch5a1 <artemch5a1@yandex.ru>
+Date:   Tue Jun 3 01:20:02 2025 +0300
+
+    update plan rabot
+
+[33mcommit 4bcb3509e3cefe39ead724bd03809558ca5147f9[m
+Author: artemch5a1 <artemch5a1@yandex.ru>
+Date:   Tue Jun 3 01:13:53 2025 +0300
+
+    fix problem with date
+
+[33mcommit 43e1f05f51a2cad4d60530ff2eb7f0605dfe4b71[m
+Author: Artem <alefa2000@mail.ru>
+Date:   Mon Jun 2 17:47:24 2025 +0300
+
+    Update main.yml
+
+[33mcommit a24d9499e115595400c96cb88dafe99f365c7791[m
+Author: Artem <alefa2000@mail.ru>
+Date:   Mon Jun 2 17:44:27 2025 +0300
+
+    Update main.yml
+
+[33mcommit 23a11cc88403af2d8bacca36f6c0c63f4bff34fe[m
+Author: Artem <alefa2000@mail.ru>
+Date:   Mon Jun 2 17:42:45 2025 +0300
+
+    Create main.yml
+
+[33mcommit bf4defe4bf39bc748074fdcd53c914606d6ce6d4[m
+Author: artemch5a1 <artemch5a1@yandex.ru>
+Date:   Mon Jun 2 17:37:30 2025 +0300
+
+    add logo and change name site and his icon
+
+[33mcommit 05bdcc01c78dac1af4cd02aed2c9410eff75116f[m
+Merge: a9f7fcbe b24fea02
+Author: Artem <alefa2000@mail.ru>
+Date:   Sat May 31 16:53:27 2025 +0300
+
+    Merge pull request #6 from dizzy-166/feature/authorization-registration
+    
+    Feature/authorization registration
+
+[33mcommit b24fea0281eacbe0a57a81835b9b5e6b355d1762[m
+Author: artemch5a1 <artemch5a1@yandex.ru>
+Date:   Sat May 31 16:53:00 2025 +0300
+
+    resolve conflict
+
+[33mcommit 6bc5832fa75517ed704e366a2f9be389eb6c3d44[m
+Author: artemch5a1 <artemch5a1@yandex.ru>
+Date:   Sat May 31 16:44:48 2025 +0300
+
+    comment code
+
+[33mcommit cc4e4c7fe1d6e5fe6b81eaba42bce96c41d7d206[m
+Author: liluziv3rt <gusevilia2006@gmail.com>
+Date:   Fri May 30 23:43:34 2025 +0300
+
+    add unit-tests for signUp
+
+[33mcommit cb55088ae5fc3a2e957da3579b08cc2f3fd6052f[m
+Author: artemch5a1 <artemch5a1@yandex.ru>
+Date:   Fri May 30 20:09:46 2025 +0300
+
+    correct
+
+[33mcommit 9d56cf1c753b33cdf8efa3a904dc097930aa013f[m
+Author: artemch5a1 <artemch5a1@yandex.ru>
+Date:   Fri May 30 19:22:21 2025 +0300
+
+    correct styles
+
+[33mcommit 78a588d938778e65bb04c3740572f9cb8ba9509a[m
+Author: artemch5a1 <artemch5a1@yandex.ru>
+Date:   Fri May 30 19:14:58 2025 +0300
+
+    styles correct
+
+[33mcommit 8b1452b1cf92543d774e97a590847153dbfe407b[m
+Author: artemch5a1 <artemch5a1@yandex.ru>
+Date:   Fri May 30 18:57:27 2025 +0300
+
+    profile page is binded with supabase
+
+[33mcommit d1d4e84e5225278823ba9ddafb471e0f9b464817[m
+Author: artemch5a1 <artemch5a1@yandex.ru>
+Date:   Fri May 30 16:59:16 2025 +0300
+
+    add profile page and date picker
+
+[33mcommit a887b27423cd0b040b4e3178ff3d0601ab656204[m
+Author: artemch5a1 <artemch5a1@yandex.ru>
+Date:   Fri May 30 15:27:02 2025 +0300
+
+    moving unit test in SignIn.test
+
+[33mcommit b7ff63cb5f5af3f64eb4ea948842059456224cfc[m
+Author: liluziv3rt <gusevilia2006@gmail.com>
+Date:   Fri May 30 04:30:12 2025 +0300
+
+    update tests
+
+[33mcommit fd917ea7785ee57f4ace9466838114906e25c3c1[m
+Author: artemch5a1 <artemch5a1@yandex.ru>
+Date:   Fri May 30 02:47:10 2025 +0300
+
+    correct SignInVM
+
+[33mcommit 3e9670169d3a7d7d77b3b24b68f15e2f1478d923[m
+Author: artemch5a1 <artemch5a1@yandex.ru>
+Date:   Thu May 29 21:13:54 2025 +0300
+
+    add gitignore and ignore cache
+
+[33mcommit 38cc70b3b146fb62890213a2b60877fb7ad93128[m
+Author: artemch5a1 <artemch5a1@yandex.ru>
+Date:   Thu May 29 02:08:12 2025 +0300
+
+    rename main on MainPage
+
+[33mcommit 077e435838891e64f96b10a4b552e16ac1785cf8[m
+Author: artemch5a1 <artemch5a1@yandex.ru>
+Date:   Thu May 29 01:50:55 2025 +0300
+
+    correct
+
+[33mcommit 380a8c857165c401468a26dc8a6b5f23a196c233[m
+Author: artemch5a1 <artemch5a1@yandex.ru>
+Date:   Thu May 29 01:29:21 2025 +0300
+
+    navigation
+
+[33mcommit 9d43185e8b7558c65c9a56379ff68f9cc14ed64f[m
+Author: artemch5a1 <artemch5a1@yandex.ru>
+Date:   Wed May 28 19:08:52 2025 +0300
+
+    header in separate component
+
+[33mcommit 4f1ff9a91656d7a4da72c8397ad6d38593ae458d[m
+Author: artemch5a1 <artemch5a1@yandex.ru>
+Date:   Wed May 28 18:43:49 2025 +0300
+
+    del profile.js
+
+[33mcommit 1bb5ce9d905b601ef1d28890264091768bf51e1f[m
+Author: artemch5a1 <artemch5a1@yandex.ru>
+Date:   Wed May 28 00:05:47 2025 +0300
+
+    registration with viewmodel
+
+[33mcommit 1b20bc87c634ac7f6af0a3009206ecb86de906f8[m
+Author: artemch5a1 <artemch5a1@yandex.ru>
+Date:   Tue May 27 19:49:08 2025 +0300
+
+    unview password
+
+[33mcommit dccb9a3fb7e45094fedc3250f1d7111e4e5d47a7[m
+Author: artemch5a1 <artemch5a1@yandex.ru>
+Date:   Tue May 27 19:46:48 2025 +0300
+
+    create signinVM
+
+[33mcommit 0bb70f4d3990743443db98c90f303a70b0e0bf3a[m
+Author: liluziv3rt <gusevilia2006@gmail.com>
+Date:   Tue May 27 19:35:38 2025 +0300
+
+    unit tests for signin
+
+[33mcommit a9f7fcbee7d51f705e1e0d8aa70f0f0d5816067b[m
+Author: liluziv3rt <gusevilia2006@gmail.com>
+Date:   Thu May 22 01:44:33 2025 +0300
+
+    full tz
+
+[33mcommit c0a9bc5fcfc6614fc3e56003652e2f5eb7a9a0a0[m
+Author: artemch5a1 <artemch5a1@yandex.ru>
+Date:   Thu May 22 01:44:05 2025 +0300
+
+    authorization with mvvm
+
+[33mcommit 5da2122edd1345b3ba4d8bf4a676e391a36515da[m
+Author: liluziv3rt <gusevilia2006@gmail.com>
+Date:   Wed May 21 00:11:26 2025 +0300
+
+    create uml for auth/reg
+
+[33mcommit a18f89eccb380af355144b06b2ab5ee07dde139b[m
+Author: liluziv3rt <gusevilia2006@gmail.com>
+Date:   Wed May 21 00:11:26 2025 +0300
+
+    create uml for auth/reg
+
+[33mcommit f58cf038094e6ef47ef2aa6944754edcec756f25[m
+Author: liluziv3rt <gusevilia2006@gmail.com>
+Date:   Wed May 21 00:09:05 2025 +0300
+
+    create uml for auth/reg
+
+[33mcommit 7cd8e6ff5e716c342d866549941b6ee62263ae51[m
+Author: liluziv3rt <gusevilia2006@gmail.com>
+Date:   Wed May 21 00:09:05 2025 +0300
+
+    create uml for auth/reg
+
+[33mcommit 8e4ba4afe74b0c8f69f6e1d04fd8ce871b3335d6[m
+Author: artemch5a1 <artemch5a1@yandex.ru>
+Date:   Tue May 20 23:27:09 2025 +0300
+
+    create TZ
+
+[33mcommit c758ca2ce0d9c05517c51a17bc5fdeccde8f0f83[m
+Author: artemch5a1 <artemch5a1@yandex.ru>
+Date:   Tue May 20 23:27:09 2025 +0300
+
+    create TZ
+
+[33mcommit 46bfaba07592227651ab0b7bf6e9fee7e316f843[m
+Author: Denis <denissheronov123@gmail.com>
+Date:   Tue May 20 16:13:49 2025 +0300
+
+    Update README.md
+
+[33mcommit 62374f0d225fd767f82159872812c2d1f48761c6[m
+Author: Denis <denissheronov123@gmail.com>
+Date:   Tue May 20 16:13:49 2025 +0300
+
+    Update README.md
+
+[33mcommit 52c7908f529aad21263a19e21ee9f62eb66bef00[m
+Author: Denis <denissheronov123@gmail.com>
+Date:   Sat May 17 17:51:35 2025 +0300
+
+    Update README.md
+
+[33mcommit 4017f512ee045e668c35265405008f6cc29eff2e[m
+Author: Denis <denissheronov123@gmail.com>
+Date:   Sat May 17 17:51:35 2025 +0300
+
+    Update README.md
+
+[33mcommit 27f07823df18ae27ab5c9a2345687280517ac6ab[m
+Author: Denis <denissheronov123@gmail.com>
+Date:   Sat May 17 17:47:35 2025 +0300
+
+    Update README.md
+
+[33mcommit e5f0f9ff3e72eb7068c42710a3ed2c3edfe90d1d[m
+Author: Denis <denissheronov
