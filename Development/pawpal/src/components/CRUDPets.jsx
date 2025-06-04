@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import image from '../resorce/no_photo.png';
+import { ActualState } from '../Domain/States/ActualState';
 
-export const CRUDPets = ({ pets, onDelete, onUpdate, onAdd }) => {
+export const CRUDPets = ({ pets, onDelete, onUpdate, onAdd, addState, messegeError }) => {
   const [editingPets, setEditingPets] = useState({});
   const [showAddForm, setShowAddForm] = useState(false);
-  const [newPet, setNewPet] = useState({ name: '', age: '', breed: '', city: '' });
+  const [newPet, setNewPet] = useState({ name: '', date_birth: '', breed: '', city: '' });
 
   const handleFieldChange = (id, field, value) => {
     setEditingPets(prev => ({
@@ -29,14 +30,12 @@ export const CRUDPets = ({ pets, onDelete, onUpdate, onAdd }) => {
   };
 
   const handleAddPet = () => {
-    if (!newPet.name || !newPet.age || !newPet.breed || !newPet.city) {
+    if (!newPet.name || !newPet.date_birth || !newPet.breedName || !newPet.city) {
       alert('Пожалуйста, заполните все поля');
       return;
     }
 
     onAdd(newPet);
-    setNewPet({ name: '', age: '', breed: '', city: '' });
-    setShowAddForm(false);
   };
 
   return (
@@ -58,11 +57,11 @@ export const CRUDPets = ({ pets, onDelete, onUpdate, onAdd }) => {
           <div className="userpets-card userpets-card--new">
             <img src={image} alt="новый питомец" className="userpets-photo" />
             <form className="userpets-form" onSubmit={e => e.preventDefault()}>
-              {['name', 'age', 'breed', 'city'].map((field) => (
+              {['name', 'date_birth', 'breedName', 'city'].map((field) => (
                 <label key={field}>
                   {field === 'name' ? 'Имя:' :
-                   field === 'age' ? 'Возраст:' :
-                   field === 'breed' ? 'Порода:' : 'Город:'}
+                   field === 'date_birth' ? 'Дата:' :
+                   field === 'breedName' ? 'Порода:' : 'Город:'}
                   <input
                     type="text"
                     value={newPet[field]}
@@ -71,11 +70,13 @@ export const CRUDPets = ({ pets, onDelete, onUpdate, onAdd }) => {
                 </label>
               ))}
             </form>
-            <div className="userpets-actions">
-              <button className="userpets-btn userpets-btn--edit" onClick={handleAddPet}>Добавить</button>
-              <button className="userpets-btn userpets-btn--delete" onClick={() => setShowAddForm(false)}>Отмена</button>
+            
+              {addState == ActualState.Init && <><div className="userpets-actions"><button className="userpets-btn userpets-btn--edit" onClick={handleAddPet}>Добавить</button>
+              <button className="userpets-btn userpets-btn--delete" onClick={() => setShowAddForm(false)}>Отмена</button></div></>}
+              {addState == ActualState.Error && <><div className="userpets-actions"><button className="userpets-btn userpets-btn--edit" onClick={handleAddPet}>Добавить</button>
+              <button className="userpets-btn userpets-btn--delete" onClick={() => setShowAddForm(false)}>Отмена</button> </div> <p>{messegeError}</p> </>}
             </div>
-          </div>
+          
         )}
 
         {pets.map(pet => {
@@ -83,13 +84,13 @@ export const CRUDPets = ({ pets, onDelete, onUpdate, onAdd }) => {
 
           return (
             <div className="userpets-card" key={pet.id}>
-              <img src={editable.image || image} alt={pet.name} className="userpets-photo" />
+              <img src={pet.image || image} alt={pet.name} className="userpets-photo" />
               <form className="userpets-form" onSubmit={e => e.preventDefault()}>
-                {['name', 'age', 'breed', 'city'].map((field) => (
+                {['name', 'date_birth', 'breedName', 'city'].map((field) => (
                   <label key={field}>
                     {field === 'name' ? 'Имя:' :
-                     field === 'age' ? 'Возраст:' :
-                     field === 'breed' ? 'Порода:' : 'Город:'}
+                     field === 'date_birth' ? 'Дата:' :
+                     field === 'breedName' ? 'Порода:' : 'Город:'}
                     <input
                       type="text"
                       value={editable[field]}

@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import image from '../../resorce/rttt.jpg';
 import { CRUDPets } from '../../components/CRUDPets';
+import YourPetsVM from './YourPetsVM';
+import { observer } from 'mobx-react';
 
-export const YourPets = () => {
-  const [pets, setPets] = useState([
+export const YourPets = observer(() => {
+  const [petss, setPets] = useState([
     { id: 1, name: 'Барсик', age: '3 года', breed: 'Сфинкс', city: 'Москва', image: image},
     { id: 2, name: 'Шарик', age: '5 лет', breed: 'Немецкая овчарка', city: 'Санкт-Петербург'},
   ]);
@@ -23,7 +25,13 @@ export const YourPets = () => {
     setPets(prev => [...prev, { ...newPet, id: newId }]);
   };
 
-  
+  const {pets, loadPets, addPet, addState, messegeError} = YourPetsVM
+
+
+  useEffect(() => {
+          loadPets();
+      }, []);
+
 
   return (
     <>
@@ -31,8 +39,11 @@ export const YourPets = () => {
       pets={pets}
       onDelete={handleDelete}
       onUpdate={handleUpdate}
-      onAdd={handleAdd}
+      onAdd={addPet}
+      addState={addState}
+      messegeError = {messegeError}
     />
     </>
   );
-};
+});
+
