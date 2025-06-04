@@ -42,7 +42,7 @@ class MainPageVM {
 
             if (petsError) {
                 console.error('Ошибка при загрузке питомцев:', petsError.message);
-                this.actualState = 'Error';
+                this.actualState = ActualState.Error;
                 return;
             }
 
@@ -54,7 +54,7 @@ class MainPageVM {
 
             if (breedsError) {
                 console.error('Ошибка при загрузке пород:', breedsError.message);
-                this.actualState = 'Error';
+                this.actualState = ActualState.Error;
                 return;
             }
 
@@ -78,12 +78,12 @@ class MainPageVM {
 
             this.pets = petsWithAge;
             this.breeds = breedsData;
-            this.actualState = 'Success';
+            this.actualState = ActualState.Success;
 
             console.log('Питомцы с возрастом:', this.pets);
         } catch (e) {
             console.error('Неожиданная ошибка:', e);
-            this.actualState = 'Error';
+            this.actualState = ActualState.Error;
         }
     }
 
@@ -95,7 +95,7 @@ class MainPageVM {
 
             if (newsError) {
                 console.error('Ошибка при загрузке питомцев:', newsError.message);
-                this.actualState = 'Error';
+                this.actualState = ActualState.Error;
                 return;
             }
 
@@ -103,7 +103,7 @@ class MainPageVM {
         }
         catch (e) {
             console.error('Неожиданная ошибка:', e);
-            this.actualState = 'Error';
+            this.actualState = ActualState.Error;
         }
     }
 

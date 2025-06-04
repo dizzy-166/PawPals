@@ -45,7 +45,7 @@ export function FindPetVM() {
       .select("*, Breeds(name)");
 
     if (filters.desc) {
-      query = query.ilike("desc", `%${filters.desc}%`);
+      query = query.or(`desc.ilike.%${filters.desc}%,name.ilike.%${filters.desc}%`);
     }
 
     if (filters.breedName) {
