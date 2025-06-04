@@ -1,60 +1,68 @@
 @font-face {
-    font-family: 'Inter';
-    src: url('../../shrif/Inter-Regular.woff2') format('woff2');
+  font-family: 'Inter';
+  src: url('../../shrif/Inter-Regular.woff2') format('woff2');
 }
 
 @font-face {
-    font-family: 'Inter_Dis';
-    src: url('../../shrif/InterDisplay-Regular.woff2') format('woff2');
+  font-family: 'Inter_Dis';
+  src: url('../../shrif/InterDisplay-Regular.woff2') format('woff2');
 }
 
 
 .container {
   background-color: #F2A75D;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-family: 'Inter_Dis', sans-serif;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Inter_Dis', sans-serif;
+}
 
 .logo {
-    display: flex;
-    align-items: center;
-    margin-left: 1%;
+  display: flex;
+  align-items: center;
+  margin-left: 1%;
 }
 
 .logo img {
-    height: 1%; /* Логотип увеличен */
-    width: 30%;
-    margin-right: 15px;
+  height: 1%;
+  /* Логотип увеличен */
+  width: 30%;
+  margin-right: 15px;
 }
 
 .logo span {
-    font-weight: bold;
-    font-size: 32px; /* Ещё больше увеличен текст "Управляй мечтой" */
+  font-weight: bold;
+  font-size: 32px;
+  /* Ещё больше увеличен текст "Управляй мечтой" */
 }
 
 nav {
   display: flex;
   align-items: center;
-  gap: 20px; /* Чуть больше расстояние между ссылками */
+  gap: 20px;
+  /* Чуть больше расстояние между ссылками */
 }
 
 nav a {
   text-decoration: none;
   color: black;
   font-weight: 600;
-  font-size: 20px; /* Увеличил размер текста меню */
+  font-size: 20px;
+  /* Увеличил размер текста меню */
   padding: 10px 15px;
   border-radius: 20px;
   position: relative;
 }
 
-  .active {
-    font-weight: bold;         /* Жирный шрифт */
-    text-decoration: none;   /* Без подчеркивания */
-    pointer-events: none;    /* Не кликается (опционально) */
-    color: #2a6496;             /* Цвет можно изменить при необходимости */
+.active {
+  font-weight: bold;
+  /* Жирный шрифт */
+  text-decoration: none;
+  /* Без подчеркивания */
+  pointer-events: none;
+  /* Не кликается (опционально) */
+  color: #2a6496;
+  /* Цвет можно изменить при необходимости */
 }
 
 nav a:not(.no-underline)::after {
@@ -89,46 +97,49 @@ nav button:hover {
   background-color: #8b0808;
 }
 
-.signinСontainer
-{
-    background-color: #FFFFFF;
-    font-family: 'Inter_Dis', sans-serif;
+.signinСontainer {
+  background-color: #FFFFFF;
+  font-family: 'Inter_Dis', sans-serif;
 }
 
 
 .parent-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Вертикальное центрирование */
-    align-items: center;    /* Горизонтальное центрирование (опционально) */
-    height: 100vh;         /* Высота контейнера = высоте экрана */
-  }
-
-.formsign
-{
-    background-color: #EFEFEF;
-    font-size: 20px;
-    margin-inline: 15%;
-    padding-left: 2%;
-    width: 400px;
-    border-radius: 25px;
-    border: 1px solid black
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Вертикальное центрирование */
+  align-items: center;
+  /* Горизонтальное центрирование (опционально) */
+  height: 100vh;
+  /* Высота контейнера = высоте экрана */
 }
 
-.titleform{
-    margin-top: 20px; 
+.formsign {
+  background-color: #EFEFEF;
+  font-size: 20px;
+  margin-inline: 15%;
+  padding-left: 2%;
+  width: 400px;
+  border-radius: 25px;
+  border: 1px solid black
+}
+
+.titleform {
+  margin-top: 20px;
 }
 
 .input-group {
-    margin-top: 30px;
-  }
+  margin-top: 30px;
+}
 
-.input-group input { /* Выбираем первый input внутри .input-group */
-    margin-bottom: 20px; /* Задаем отступ снизу */
-  }
-  
-  
-  .input-field {
+.input-group input {
+  /* Выбираем первый input внутри .input-group */
+  margin-bottom: 20px;
+  /* Задаем отступ снизу */
+}
+
+
+.input-field {
   background-color: #D9D9D9;
   padding: 10px;
   border: 1px solid #ccc;
@@ -138,6 +149,7 @@ nav button:hover {
   margin-bottom: 20px;
   box-sizing: border-box;
 }
+
 .react-datepicker-wrapper {
   width: 100%;
   display: flex;
@@ -150,44 +162,56 @@ nav button:hover {
   justify-content: center;
 }
 
-  .button-style {
-    background-color: #50c878; /* Цвет фона (примерно зеленый) */
-    color: #fff; /* Белый цвет текста */
-    padding: 10px 20px; /* Верхний/нижний и левый/правый отступы */
-    border: none; /* Убираем обводку */
-    border-radius: 8px; /* Скругление углов */
-    font-size: 16px; /* Размер шрифта */
-    cursor: pointer; /* Изменение курсора при наведении */
-    transition: background-color 0.3s ease; /* Плавный переход цвета фона */
-  }
-  
-  .button-style:hover {
-    background-color: #3ea868; /* Цвет фона при наведении (более темный зеленый) */
-  }
-  
-  .button-style:active {
-    background-color: #328757; /* Цвет фона при нажатии (еще более темный зеленый) */
-  }
-  
-  .button-style:focus {
-    outline: none; /* Убираем обводку при фокусе */
-    box-shadow: 0 0 0 2px rgba(80, 200, 120, 0.5); /* Добавляем легкую тень для индикации фокуса */
-  }
-
-.registNav{
-    display: flex;
-    margin-top: 20px;
-    margin-bottom: 30px;
+.button-style {
+  background-color: #50c878;
+  /* Цвет фона (примерно зеленый) */
+  color: #fff;
+  /* Белый цвет текста */
+  padding: 10px 20px;
+  /* Верхний/нижний и левый/правый отступы */
+  border: none;
+  /* Убираем обводку */
+  border-radius: 8px;
+  /* Скругление углов */
+  font-size: 16px;
+  /* Размер шрифта */
+  cursor: pointer;
+  /* Изменение курсора при наведении */
+  transition: background-color 0.3s ease;
+  /* Плавный переход цвета фона */
 }
 
-.create-account-link{
-    background: none;
-    border: none;
-    color: #2a5885;
-    cursor: pointer;
-    font-weight: 500;
-    padding: 0;
-    margin-left: 5px;
+.button-style:hover {
+  background-color: #3ea868;
+  /* Цвет фона при наведении (более темный зеленый) */
+}
+
+.button-style:active {
+  background-color: #328757;
+  /* Цвет фона при нажатии (еще более темный зеленый) */
+}
+
+.button-style:focus {
+  outline: none;
+  /* Убираем обводку при фокусе */
+  box-shadow: 0 0 0 2px rgba(80, 200, 120, 0.5);
+  /* Добавляем легкую тень для индикации фокуса */
+}
+
+.registNav {
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.create-account-link {
+  background: none;
+  border: none;
+  color: #2a5885;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 0;
+  margin-left: 5px;
 }
 
 .modal-overlay {
@@ -196,7 +220,7 @@ nav button:hover {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -220,7 +244,8 @@ nav button:hover {
   display: flex;
   justify-content: center;
   padding-top: 40px;
-  padding-bottom: 60px; /* небольшой нижний отступ от формы */
+  padding-bottom: 60px;
+  /* небольшой нижний отступ от формы */
 }
 
 .formprofile {
@@ -251,7 +276,7 @@ nav button:hover {
   align-items: center;
 }
 
-.input-groupforProf{
+.input-groupforProf {
   background-color: #D9D9D9;
   padding: 10px;
   border: 1px solid #ccc;
@@ -283,16 +308,23 @@ nav button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* высота экрана, или можно 100% если родитель высоты явно задан */
+  height: 100vh;
+  /* высота экрана, или можно 100% если родитель высоты явно задан */
   width: 100%;
-  pointer-events: none; /* чтобы не блокировать клики по контенту */
+  pointer-events: none;
+  /* чтобы не блокировать клики по контенту */
   font-family: 'Inter';
   font-size: 200%;
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .mainPageContainer {
@@ -340,7 +372,7 @@ nav button:hover {
   border-radius: 8px;
   padding: 16px;
   margin: 0 10px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -460,7 +492,7 @@ nav button:hover {
   background-color: #f9f9f9;
   border-radius: 8px;
   padding: 15px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .newsTitle {
@@ -480,3 +512,114 @@ nav button:hover {
   line-height: 1.4;
   color: #34495e;
 }
+
+.containerFindPet {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: Arial, sans-serif;
+}
+
+.titleFindPet {
+  text-align: center;
+}
+
+.formFindPet {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.inputFindPet {
+  padding: 8px;
+  font-size: 16px;
+}
+
+.buttonFindPet {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.listFindPet {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .cardFindPet {
+    display: flex;
+    width: 920px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    background: #fff;
+    align-items: center; /* Выровнять по центру по вертикали */
+  }
+
+  .petImageContainer {
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f0f0;
+  overflow: hidden;
+  margin-left: 8px; 
+  margin-top: 8px;
+}
+
+  .petImage {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
+
+  .noImagePlaceholder {
+    font-size: 14px;
+    color: #888;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .petInfoContainer {
+    padding: 12px 16px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .petName {
+    margin: 0 0 6px 0;
+    font-size: 18px;
+  }
+
+  .petBreed, .petDesc {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #555;
+  }
+
+  .walkButton {
+    margin-top: auto; /* Оттолкнуть кнопку к низу */
+    padding: 6px 12px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    align-self: flex-start;
+  }
+
+  .walkButton:hover {
+    background-color: #45a049;
+  }

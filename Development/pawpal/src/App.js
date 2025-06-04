@@ -1,5 +1,5 @@
 import { CustomHeader } from './components/CustomHeader';
-import { FindPet } from './pages/FindPet/FindPet';
+import FindPet from './pages/FindPet/FindPet';
 
 import { Meetings } from './pages/Meetings/Meetings';
 import ProfilePage from './pages/PerosnalAccount/ProfilePage';
