@@ -8,8 +8,8 @@ const PetCard = ({ pet }) => {
     <div className="petCard">
       <div className="petImageContainer">
         {pet.image ? (
-          <img 
-            src={pet.image} 
+          <img
+            src={pet.image}
             alt={pet.name}
             className="petImage"
           />
@@ -17,16 +17,26 @@ const PetCard = ({ pet }) => {
           <div className="noImagePlaceholder">Нет изображения</div>
         )}
       </div>
-      
+
       <div className="petInfoContainer">
         <h3 className="petName">{pet.name}</h3>
-        <p className="petDetail">{pet.breedName}, возвраст (в годах): {pet.age}</p>
-        <p className="petLocation">{pet.location}</p>
-        
+        <p className="petDetail">{pet.breedName}, возраст (в годах): {pet.age}</p>
+        <p className="petCity">{pet.city}</p>
+
         <button className="walkButton">
           Позвать на прогулку
         </button>
       </div>
+    </div>
+  );
+};
+
+const NewsItem = ({ news }) => {
+  return (
+    <div className="newsItem">
+      <h3 className="newsTitle">{news.name}</h3>
+      <p className="newsDate">{news.date}</p>
+      <p className="newsDescription">{news.description}</p>
     </div>
   );
 };
@@ -38,8 +48,8 @@ const MainPage = observer(() => {
 
   useEffect(() => {
     MainPageVM.loadPets();
+    MainPageVM.loadNews();
   }, []);
-  
 
   useEffect(() => {
     const container = scrollContainerRef.current;
@@ -50,10 +60,10 @@ const MainPage = observer(() => {
           container.scrollLeft < container.scrollWidth - container.clientWidth
         );
       };
-      
+
       container.addEventListener('scroll', handleScroll);
       handleScroll();
-      
+
       return () => container.removeEventListener('scroll', handleScroll);
     }
   }, [MainPageVM.pets]);
@@ -76,23 +86,16 @@ const MainPage = observer(() => {
     return <div className="errorState">Ошибка: {MainPageVM.messageError}</div>;
   }
 
-  const displayedPets = MainPageVM.pets.length > 0 
-    ? MainPageVM.pets.map(pet => ({
-        ...pet,
-        date_birth: pet.date_birth || 2,
-        location: pet.location || 'Москва',
-        image: pet.image || null
-      }))
-    : [
-        { id: 1, name: 'Барсик', category: 'Ретривер', age: 2, location: 'Москва', image: null },
-        { id: 2, name: 'Мурзик', category: 'Британский', age: 3, location: 'Санкт-Петербург', image: null },
-        { id: 3, name: 'Шарик', category: 'Дворняга', age: 4, location: 'Казань', image: null },
-        { id: 4, name: 'Рекс', category: 'Овчарка', age: 1, location: 'Новосибирск', image: null }
-      ];
+  const displayedPets = MainPageVM.pets
+  const displayedNews = [...MainPageVM.news].sort((a, b) => {
+    const dateA = a.date.split('.').reverse().join('-');
+    const dateB = b.date.split('.').reverse().join('-');
+    return new Date(dateB) - new Date(dateA); // отсортированная дата
+  });
 
   return (
     <div className="mainPageContainer">
-      <div 
+      <div
         ref={scrollContainerRef}
         className="scrollContainer"
       >
@@ -119,6 +122,16 @@ const MainPage = observer(() => {
           Вперёд →
         </button>
       </div>
+
+      <div className="newsSection">
+        <h2 className="sectionTitle">Новости</h2>
+        <div className="newsList">
+          {displayedNews.map(news => (
+            <NewsItem key={news.id} news={news} />
+          ))}
+        </div>
+      </div>
+
     </div>
   );
 });

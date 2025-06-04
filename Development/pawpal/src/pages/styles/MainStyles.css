@@ -438,3 +438,45 @@ nav button:hover {
   text-align: center;
   color: red;
 }
+
+.newsSection {
+  margin-top: 30px;
+  padding: 20px;
+}
+
+.sectionTitle {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.newsList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.newsItem {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.newsTitle {
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: #2c3e50;
+}
+
+.newsDate {
+  font-size: 14px;
+  color: #7f8c8d;
+  margin-bottom: 10px;
+}
+
+.newsDescription {
+  font-size: 15px;
+  line-height: 1.4;
+  color: #34495e;
+}
