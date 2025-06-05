@@ -297,7 +297,6 @@ class YourPetsVM {
 
             if (deleteError) {
                 console.error('Ошибка удаления питомца:', deleteError.message);
-                this.addState = ActualState.Error;
                 this.messegeError = deleteError.message;
                 alert(deleteError.message);
                 return;
@@ -315,12 +314,10 @@ class YourPetsVM {
             // 3. Обновляем локальный список
             this.pets = this.pets.filter(pet => pet.id !== id);
 
-            this.addState = ActualState.Success;
             alert('Питомец успешно удален');
 
         } catch (e) {
             console.error('Ошибка при удалении:', e);
-            this.addState = ActualState.Error;
             this.messegeError = e.message || 'Неизвестная ошибка';
             alert(e.message);
         }
