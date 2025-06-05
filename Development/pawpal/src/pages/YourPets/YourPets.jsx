@@ -25,7 +25,7 @@ export const YourPets = observer(() => {
     setPets(prev => [...prev, { ...newPet, id: newId }]);
   };
 
-  const {pets, loadPets, addPet, addState, messegeError, beerds} = YourPetsVM
+  const {pets, loadPets, addPet, addState, messegeError, beerds, updatePet, updatePets, deletePet} = YourPetsVM
 
 
   useEffect(() => {
@@ -37,12 +37,13 @@ export const YourPets = observer(() => {
     <>
     <CRUDPets
       b={beerds}
-      onDelete={handleDelete}
-      onUpdate={handleUpdate}
+      onDelete={deletePet}
+      onUpdate={updatePet}
       onAdd={addPet}
       addState={addState}
       messegeError = {messegeError}
       pets={pets}
+      upPet={updatePets}
     />
     </>
   );

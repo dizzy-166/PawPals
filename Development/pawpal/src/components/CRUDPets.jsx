@@ -2,22 +2,27 @@ import React, { useState } from 'react';
 import image from '../resorce/no_photo.png';
 import { ActualState } from '../Domain/States/ActualState';
 import DatePicker from "react-datepicker";
+import { observer } from 'mobx-react';
 
-export const CRUDPets = ({ pets, onDelete, onUpdate, onAdd, addState, messegeError, b }) => {
-  const [editingPets, setEditingPets] = useState({});
+export const CRUDPets = observer(({ pets, onDelete, onUpdate, onAdd, addState, messegeError, b, upPet }) => {
+  const [editingPets, setEditingPets] = useState(pets);
   const [showAddForm, setShowAddForm] = useState(false);
   const [newPet, setNewPet] = useState({ name: '', date_birth: '', breedName: 1, city: '' });
 
   const handleFieldChange = (id, field, value) => {
-    setEditingPets(prev => ({
-      ...prev,
-      [id]: { ...prev[id], [field]: value }
-    }));
+    setEditingPets(prev => {
+      const existing = prev[id] || pets.find(p => p.id === id) || {};
+      return {
+        ...prev,
+        [id]: { ...existing, [field]: value }
+      };
+    });
   };
 
-  const handleSave = (id) => {
-    if (editingPets[id]) {
-      onUpdate(id, editingPets[id]);
+  const handleSave = async (array, id) => {
+    if (true) {
+      const newd = array
+      await onUpdate(newd, id);
       setEditingPets(prev => {
         const copy = { ...prev };
         delete copy[id];
@@ -150,11 +155,26 @@ export const CRUDPets = ({ pets, onDelete, onUpdate, onAdd, addState, messegeErr
         )}
 
         {pets.map(pet => {
-          const editable = editingPets[pet.id] || pet;
+          
+
+          // Безопасно генерируем превью, если это File
+          let previewImage = '';
+          if (pet.imageFile instanceof File) {
+            try {
+              previewImage = URL.createObjectURL(pet.imageFile);
+            } catch (err) {
+              console.warn('Не удалось создать объект URL:', err);
+            }
+          }
 
           return (
             <div className="userpets-card" key={pet.id}>
-              <img src={editable.image || image} alt={editable.name} className="userpets-photo" />
+              <img
+                src={previewImage || pet.image || image}
+                alt={pet.name}
+                className="userpets-photo"
+              />
+
               <form className="userpets-form" onSubmit={e => e.preventDefault()}>
                 {['name', 'date_birth', 'breedName', 'city'].map((field) => (
                   <label key={field}>
@@ -162,38 +182,34 @@ export const CRUDPets = ({ pets, onDelete, onUpdate, onAdd, addState, messegeErr
                       field === 'date_birth' ? 'Дата:' :
                         field === 'breedName' ? 'Порода:' : 'Город:'}
 
-                    {/* Поля: name и city */}
                     {(field !== 'breedName' && field !== 'date_birth') && (
                       <input
                         type="text"
-                        value={editable[field]}
-                        onChange={(e) => handleFieldChange(pet.id, field, e.target.value)}
+                        value={pet[field] || ''}
+                        onChange={(e) => upPet({...pet, [field]: e.target.value}, pet.id )}
                       />
                     )}
 
-                    {/* Поле: date_birth */}
                     {field === 'date_birth' && (
                       <DatePicker
-                        selected={new Date(editable[field])}
-                        onChange={(date) => handleFieldChange(pet.id, field, date)}
+                        selected={pet[field] ? new Date(pet[field]) : null}
+                        onChange={(date) => pet[field] = date}
                         dateFormat="dd.MM.yyyy"
                         placeholderText="Дата рождения"
                         className="userpets-form input"
                       />
                     )}
 
-                    {/* Поле: breedName */}
                     {field === 'breedName' && (
                       <div className="select-wrapper">
                         <select
                           required
-                          value={editable[field]}
-                          onChange={(e) => handleFieldChange(pet.id, field, e.target.value)}
+                          onChange={(e) => pet[field] = e.target.value}
                           className="userpets-form-input"
                         >
-                          <option value="">{editable[field]}</option>
+                          <option value="">{pet[field]}</option>
                           {b.map(x => (
-                            <option key={x.id} value={x.id}>{x.name}</option>
+                            <option key={x.name} value={x.id}>{x.name}</option>
                           ))}
                         </select>
                       </div>
@@ -201,7 +217,7 @@ export const CRUDPets = ({ pets, onDelete, onUpdate, onAdd, addState, messegeErr
                   </label>
                 ))}
 
-                {/* Фото-поле, если хочешь разрешить редактировать фото */}
+                {/* Фото-поле */}
                 <label>
                   Фото:
                   <input
@@ -209,15 +225,16 @@ export const CRUDPets = ({ pets, onDelete, onUpdate, onAdd, addState, messegeErr
                     accept="image/*"
                     onChange={(e) => {
                       const file = e.target.files[0];
-                      if (file) {
-                        handleFieldChange(pet.id, 'imageFile', file);
+                      if (file instanceof File) {
+                        pet.imageFile = file
                       }
                     }}
                   />
                 </label>
               </form>
+
               <div className="userpets-actions">
-                <button className="userpets-btn userpets-btn--edit" onClick={() => handleSave(pet.id)}>Сохранить</button>
+                <button className="userpets-btn userpets-btn--edit" onClick={() => handleSave(pet, pet.id)}>Сохранить</button>
                 <button className="userpets-btn userpets-btn--delete" onClick={() => onDelete(pet.id)}>Удалить</button>
               </div>
             </div>
@@ -226,4 +243,4 @@ export const CRUDPets = ({ pets, onDelete, onUpdate, onAdd, addState, messegeErr
       </section>
     </main>
   );
-};
+});
