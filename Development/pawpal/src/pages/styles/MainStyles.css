@@ -150,17 +150,14 @@ nav button:hover {
   box-sizing: border-box;
 }
 
+
 .react-datepicker-wrapper {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-.react-datepicker__input-container {
-  width: 80%;
-  display: flex;
-  justify-content: center;
-}
+
 
 .button-style {
   background-color: #50c878;
@@ -315,6 +312,110 @@ nav button:hover {
   /* чтобы не блокировать клики по контенту */
   font-family: 'Inter';
   font-size: 200%;
+}
+
+/* Контейнеры */
+.userpets-main {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.userpets-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  max-width: 700px;
+}
+
+/* Карточка */
+.userpets-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Прямоугольная фотография */
+.userpets-photo {
+  width: 100%;
+  max-width: 300px;
+  height: 180px;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+/* Форма редактирования */
+.userpets-form {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.userpets-form label {
+  display: flex;
+  margin-left: 8%;
+  flex-direction: column;
+  font-size: 16px;
+  font-weight: 500;
+  color: #222;
+}
+
+.userpets-form-input,
+.userpets-form input {
+  margin-top: 4px !important;
+  padding: 8px 15px !important;
+  border: 1px solid #ccc !important;
+  border-radius: 8px !important;
+  font-size: 16px !important;
+  width: 80% !important;
+}
+
+.select-wrapper {
+  position: relative;
+  width: 111%;
+}
+
+
+/* Кнопки */
+.userpets-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.userpets-btn {
+  font-size: 16px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.userpets-btn--edit {
+  background-color: #2a5885;
+  color: white;
+}
+
+.userpets-btn--edit:hover {
+  background-color: #1f456a;
+}
+
+.userpets-btn--delete {
+  background-color: #b80000;
+  color: white;
+}
+
+.userpets-btn--delete:hover {
+  background-color: #8b0808;
 }
 
 @keyframes spin {
